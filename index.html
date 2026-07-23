@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estate sale July 23–25 at 11045 Silver Lake Road, South Lyon. Browse tools, vintage audio, furniture, garden equipment, household goods, collectibles, and much more.">
-  <meta property="og:title" content="Estate Sale · July 23–25 · South Lyon">
-  <meta property="og:description" content="Thursday and Friday 9–5, Saturday 9–2. Half off Saturday. Many items are brand new in box. Browse the photo catalog.">
-  <title>Estate Sale · July 23–25 · South Lyon</title>
+  <meta name="description" content="Estate sale July 23-25 at 11045 Silver Lake Road, South Lyon. Browse tools, vintage audio, furniture, garden equipment, household goods, collectibles, and much more.">
+  <meta property="og:title" content="Estate Sale | July 23-25 | South Lyon">
+  <meta property="og:description" content="Thursday and Friday 9-5, Saturday 9-2. Half off Saturday. Many items are brand new in box. Browse the photo catalog.">
+  <title>Estate Sale | July 23-25 | South Lyon</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
       <div>
         <p class="eyebrow">A house, garage, and workshop full of finds</p>
         <h1>Something useful, unusual, or nostalgic around every corner.</h1>
-        <p class="hero-copy">Explore a large and varied estate collection—from vintage audio and advertising to furniture, household goods, garden equipment, tools, hardware, collectibles, and much more. So many items are available, including many brand-new-in-box finds.</p>
+        <p class="hero-copy">Explore a large and varied estate collection - from vintage audio and advertising to furniture, household goods, garden equipment, tools, hardware, collectibles, and much more. So many items are available, including many brand-new-in-box finds.</p>
         <a class="button" href="#browse">Explore the collection</a>
       </div>
       <aside class="hero-note">
@@ -30,9 +30,9 @@
       </aside>
     </div>
     <section class="schedule shell" aria-label="Estate sale hours">
-      <div><span>Thursday</span><strong>July 23</strong><em>9 AM–5 PM</em></div>
-      <div><span>Friday</span><strong>July 24</strong><em>9 AM–5 PM</em></div>
-      <div><span>Saturday</span><strong>July 25</strong><em>9 AM–2 PM</em></div>
+      <div><span>Thursday</span><strong>July 23</strong><em>9 AM-5 PM</em></div>
+      <div><span>Friday</span><strong>July 24</strong><em>9 AM-5 PM</em></div>
+      <div><span>Saturday</span><strong>July 25</strong><em>9 AM-2 PM</em></div>
       <div class="half-off"><span>Saturday special</span><strong>Half off</strong><em>Items on Saturday</em></div>
     </section>
   </header>
@@ -49,7 +49,7 @@
         <article><h3>Plumbing & electrical</h3><p>Specialty plumbing tools, electrical tools, extension cords, fittings, supplies, and shop accessories.</p></article>
         <article><h3>Garden & outdoor</h3><p>Garden tools, hoses, many planters, ladders, outdoor equipment, and two trailers.</p></article>
         <article><h3>Hardware & storage</h3><p>Nuts, bolts, fasteners, brackets, organizers, parts drawers, and a broad assortment of useful hardware.</p></article>
-        <article><h3>Collectibles & décor</h3><p>Jewelry, old-fashioned milk jugs, advertising pieces, decorative objects, clocks, signs, and local-interest finds.</p></article>
+        <article><h3>Collectibles & decor</h3><p>Jewelry, old-fashioned milk jugs, advertising pieces, decorative objects, clocks, signs, and local-interest finds.</p></article>
         <article><h3>Electronics & household</h3><p>Small electronics, cameras, cleaning equipment, appliances, kitchenware, furniture, media, and everyday household goods.</p></article>
       </div>
     </section>
@@ -65,10 +65,13 @@
         </div>
         <div class="controls">
           <label class="search">
-            <span class="sr-only">Search inventory</span>
-            <input id="searchInput" type="search" placeholder="Search tools, signs, furniture…" autocomplete="off">
+            <span>Search items</span>
+            <input id="searchInput" type="search" placeholder="Search tools, signs, furniture..." autocomplete="off">
           </label>
-          <div class="chips" id="categoryChips" aria-label="Filter by category"></div>
+          <label class="category-filter">
+            <span>Category</span>
+            <select id="categorySelect" aria-label="Filter by category"></select>
+          </label>
         </div>
         <div class="item-grid" id="itemGrid"></div>
         <button class="button secondary load-more" id="loadMore" type="button">Show more items</button>
@@ -87,12 +90,12 @@
   </main>
 
   <dialog id="photoDialog">
-    <button class="dialog-close" type="button" aria-label="Close photo">×</button>
+    <button class="dialog-close" type="button" aria-label="Close photo">X</button>
     <img alt="" id="dialogImage">
     <p id="dialogCaption"></p>
   </dialog>
 
-  <footer><div class="shell">Estate Sale Collection · Inventory is representative and subject to availability.</div></footer>
+  <footer><div class="shell">Estate Sale Collection | Inventory is representative and subject to availability.</div></footer>
   <script src="data/public-items.js"></script>
   <script src="app.js"></script>
 </body>

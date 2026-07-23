@@ -1,7 +1,7 @@
 const items = Array.isArray(window.PUBLIC_ITEMS) ? window.PUBLIC_ITEMS : [];
 const grid = document.querySelector("#itemGrid");
 const search = document.querySelector("#searchInput");
-const chips = document.querySelector("#categoryChips");
+const categorySelect = document.querySelector("#categorySelect");
 const count = document.querySelector("#resultCount");
 const loadMore = document.querySelector("#loadMore");
 const dialog = document.querySelector("#photoDialog");
@@ -12,17 +12,10 @@ let visible = 48;
 
 const categories = ["All", ...new Set(items.map(x => x.category).filter(Boolean).sort())];
 for (const name of categories) {
-  const button = document.createElement("button");
-  button.className = `chip${name === "All" ? " active" : ""}`;
-  button.type = "button";
-  button.textContent = name;
-  button.addEventListener("click", () => {
-    category = name;
-    visible = 48;
-    document.querySelectorAll(".chip").forEach(x => x.classList.toggle("active", x === button));
-    render();
-  });
-  chips.append(button);
+  const option = document.createElement("option");
+  option.value = name;
+  option.textContent = name === "All" ? "All categories" : name;
+  categorySelect.append(option);
 }
 
 function matches(item) {
@@ -41,7 +34,7 @@ function render() {
     const media = item.photo
       ? `<img class="item-photo" loading="lazy" src="${item.photo}" alt="${escapeHtml(item.item)}">`
       : `<div class="photo-placeholder">Photo not yet available</div>`;
-    const brand = [item.brand, item.model].filter(Boolean).join(" · ");
+    const brand = [item.brand, item.model].filter(Boolean).join(" - ");
     card.innerHTML = `${media}<div class="item-content"><span class="item-category">${escapeHtml(item.category)}</span><h3>${escapeHtml(item.item)}</h3>${brand ? `<p class="item-brand">${escapeHtml(brand)}</p>` : ""}</div>`;
     const image = card.querySelector("img");
     if (image) image.addEventListener("click", () => openPhoto(item));
@@ -61,6 +54,11 @@ function escapeHtml(value) {
   return String(value || "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
 }
 search.addEventListener("input", () => { visible = 48; render(); });
+categorySelect.addEventListener("change", () => {
+  category = categorySelect.value;
+  visible = 48;
+  render();
+});
 loadMore.addEventListener("click", () => { visible += 48; render(); });
 dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
