@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Estate Sale Staff Inventory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="staff-body">
+  <main class="staff-shell">
+    <section class="login-card" id="loginPanel">
+      <p class="eyebrow">Internal inventory</p>
+      <h1>Estate sale staff view</h1>
+      <p>Enter the internal passphrase to view prices and update sold status.</p>
+      <form id="loginForm">
+        <label>Passphrase<input id="passphrase" type="password" autocomplete="current-password" required></label>
+        <button class="button" type="submit">Open inventory</button>
+        <p class="form-error" id="loginError" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="staffApp" hidden>
+      <header class="staff-header">
+        <div><p class="eyebrow">Internal inventory</p><h1>Sale dashboard</h1></div>
+        <button class="text-button" id="lockButton" type="button">Lock</button>
+      </header>
+      <div class="stats" id="stats"></div>
+      <div class="staff-actions">
+        <input id="staffSearch" type="search" placeholder="Search inventory…">
+        <select id="staffCategory"><option value="">All categories</option></select>
+        <select id="staffStatus"><option value="">All statuses</option><option value="available">Available</option><option value="sold">Sold</option></select>
+      </div>
+      <div class="staff-tools">
+        <button class="button secondary" id="exportStatus" type="button">Export sold status</button>
+        <label class="button secondary file-button">Import status<input id="importStatus" type="file" accept="application/json"></label>
+        <button class="button secondary" onclick="window.print()" type="button">Print</button>
+      </div>
+      <p class="device-note">Sold status is saved on this device. Use Export and Import to move the current status to another phone or computer.</p>
+      <div class="staff-list" id="staffList"></div>
+    </section>
+  </main>
+  <script src="staff.js"></script>
+</body>
+</html>
